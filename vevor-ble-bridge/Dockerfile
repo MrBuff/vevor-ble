@@ -20,10 +20,10 @@ WORKDIR /app
 RUN git clone https://github.com/bderleta/vevor-ble-bridge.git /app
 
 # Debug-Info ausgeben
-RUN node --version && npm --version
+# RUN node --version && npm --version
 
 # Installiere Node.js-Abhängigkeiten mit mehr Feedback
-RUN cd /app && npm install --verbose
+# RUN cd /app && npm install --verbose
 
 # Kopiere das Startskript
 COPY run.sh /
