@@ -3,8 +3,8 @@ FROM $BUILD_FROM
 
 # Installiere benötigte Pakete
 RUN apk add --no-cache \
-    nodejs \
-    npm \
+    nodejs=16.20.2-r0 \
+    npm=8.19.4-r0 \
     git \
     bluez \
     bluez-dev \
@@ -19,8 +19,11 @@ WORKDIR /app
 # Kopiere das Repository
 RUN git clone https://github.com/bderleta/vevor-ble-bridge.git /app
 
-# Installiere Node.js-Abhängigkeiten
-RUN npm install
+# Debug-Info ausgeben
+RUN node --version && npm --version
+
+# Installiere Node.js-Abhängigkeiten mit mehr Feedback
+RUN cd /app && npm install --verbose
 
 # Kopiere das Startskript
 COPY run.sh /
