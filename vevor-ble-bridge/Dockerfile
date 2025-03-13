@@ -3,8 +3,6 @@ FROM $BUILD_FROM
 
 # Installiere benötigte Pakete
 RUN apk add --no-cache \
-    nodejs=16.20.2-r0 \
-    npm=8.19.4-r0 \
     git \
     bluez \
     bluez-dev \
