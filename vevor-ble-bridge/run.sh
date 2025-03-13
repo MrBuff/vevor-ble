@@ -29,4 +29,4 @@ hciconfig hci0 up || bashio::log.warning "Konnte Bluetooth nicht starten"
 # Starte die Bridge
 cd /app
 bashio::log.info "Starte Vevor BLE Bridge..."
-node index.js
+#node index.js
