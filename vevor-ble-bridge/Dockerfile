@@ -18,8 +18,8 @@ RUN apk add --no-cache \
 # Arbeitsverzeichnis setzen
 WORKDIR /app
 
-# Code aus dem Repository klonen
-#RUN git clone https://github.com/bderleta/vevor-ble-bridge.git /app/vevor-ble-bridge
+# Liste Dateien im Verzeichnis
+RUN ls -la /app
 
 # Copy data for add-on
 COPY run.sh /
