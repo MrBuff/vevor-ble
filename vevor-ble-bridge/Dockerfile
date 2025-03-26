@@ -25,7 +25,7 @@ WORKDIR /app
 RUN apk add --no-cache py3-paho-mqtt
 
 # Skripte und Laufzeitdateien kopieren
-COPY run.sh /app/
+#COPY run.sh /app/
 
 # Skripte ausführbar machen
 RUN chmod +x /app/run.sh
