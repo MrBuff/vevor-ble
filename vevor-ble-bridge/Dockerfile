@@ -4,13 +4,12 @@ FROM $BUILD_FROM
 # Installiere Systemabhängigkeiten
 RUN apk add --no-cache \
     python3 \
-    py3-pip \
-    git \
-    bluez \
-    bluez-dev \
-    build-base \
-    linux-headers \
-    eudev \
+#    py3-pip \
+#    bluez \
+#    bluez-dev \
+#    build-base \
+#    linux-headers \
+#    eudev \
     py3-paho-mqtt \
 
 # Bluetooth-Dienste aktivieren
