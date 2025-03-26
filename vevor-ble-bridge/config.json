@@ -1,0 +1,25 @@
+{
+  "name": "Vevor BLE Bridge",
+  "version": "0.1",
+  "slug": "vevor_ble_bridge",
+  "description": "Bridge for Vevor BLE devices to MQTT",
+  "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
+  "startup": "application",
+  "boot": "auto",
+  "ports": {
+    "5000/tcp": 5000
+  },
+  "map": ["config", "share", "ssl"],
+  "options": {
+    "mqtt_host": "mqtt://localhost",
+    "mqtt_port": 1883,
+    "mqtt_username": "",
+    "mqtt_password": ""
+  },
+  "schema": {
+    "mqtt_host": "str",
+    "mqtt_port": "int",
+    "mqtt_username": "str",
+    "mqtt_password": "str"
+  }
+}

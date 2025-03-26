@@ -1,31 +1,25 @@
-ARG BUILD_FROM
-FROM $BUILD_FROM
+FROM python:3.10-slim
 
-# Installiere benötigte Pakete
-RUN apk add --no-cache \
-    python3 \
-    py3-pip \
-    git \
-    bluez \
-    bluez-dev \
-    build-base \
-    linux-headers \
-    eudev
+# Installiere Systemabhängigkeiten
+RUN apt-get update && apt-get install -y \
+    git bluez \
+    && rm -rf /var/lib/apt/lists/*
 
-# Bluetooth-Dienste aktivieren
-RUN rc-update add bluetooth default
-
-# Arbeitsverzeichnis setzen
+# Arbeitsverzeichnis festlegen
 WORKDIR /app
 
-# Kopiere das Repository
-RUN git clone https://github.com/bderleta/vevor-ble-bridge.git /app
+# Code aus dem Repository klonen
+RUN git clone https://github.com/bderleta/vevor-ble-bridge.git /app/vevor-ble-bridge
 
-# Installiere Python-Abhängigkeiten aus requirements.txt
-RUN pip3 install --no-cache-dir -r /app/requirements.txt
+# Kopiere Abhängigkeiten und installiere sie
+COPY requirements.txt /app/vevor-ble-bridge/
+RUN pip install --no-cache-dir -r /app/vevor-ble-bridge/requirements.txt
 
-# Kopiere das Startskript
-COPY run.sh /
-RUN chmod a+x /run.sh
+# Skripte und Laufzeitdateien kopieren
+COPY run.sh /app/
 
-CMD [ "/run.sh" ]
+# Skripte ausführbar machen
+RUN chmod +x /app/run.sh
+
+# Standardkommando
+CMD ["/app/run.sh"]
