@@ -5,13 +5,12 @@ FROM $BUILD_FROM
 RUN apk add --no-cache \
     python3 \
     py3-paho-mqtt
-#    py3-pip \
-#    bluez \
-#    bluez-dev \
-#    build-base \
-#    linux-headers \
-#    eudev \
-
+    py3-pip \
+    bluez \
+    bluez-dev \
+    build-base \
+    linux-headers \
+    eudev
 
 # Bluetooth-Dienste aktivieren
 #RUN rc-update add bluetooth default
