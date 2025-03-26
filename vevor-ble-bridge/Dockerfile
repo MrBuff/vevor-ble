@@ -16,10 +16,10 @@ FROM $BUILD_FROM
 #RUN rc-update add bluetooth default
 
 # Arbeitsverzeichnis setzen
-WORKDIR /app
+#WORKDIR /app
 
 # Kopiere das Repository
-RUN git clone https://github.com/bderleta/vevor-ble-bridge.git /app
+#RUN git clone https://github.com/bderleta/vevor-ble-bridge.git /app
 
 # Installiere Python-Abhängigkeiten
 #RUN pip3 install --no-cache-dir \
