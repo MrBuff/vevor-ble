@@ -28,7 +28,7 @@ RUN apk add --no-cache py3-paho-mqtt
 #COPY run.sh /app/
 
 # Skripte ausführbar machen
-RUN chmod +x /app/run.sh
+RUN chmod +x /run.sh
 
 # Standardkommando
-CMD [ "/app/run.sh" ]
+CMD [ "/run.sh" ]
