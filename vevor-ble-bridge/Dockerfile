@@ -31,4 +31,4 @@ RUN apk add --no-cache py3-paho-mqtt
 #RUN chmod +x /run.sh
 
 # Standardkommando
-CMD [ "/run.sh" ]
+CMD [ "/app/run.sh" ]
