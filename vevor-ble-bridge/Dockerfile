@@ -22,12 +22,12 @@ FROM $BUILD_FROM
 #RUN git clone https://github.com/bderleta/vevor-ble-bridge.git /app
 
 # Installiere Python-Abhängigkeiten
-#RUN pip3 install --no-cache-dir \
-#    paho-mqtt \
-#    bleak \
-#    bluepy \
-#    asyncio \
-#    pyyaml --verbose
+RUN pip3 install --no-cache-dir \
+    paho-mqtt \
+    bleak \
+    bluepy \
+    asyncio \
+    pyyaml --verbose
 
 # Kopiere das Startskript
 COPY run.sh /
