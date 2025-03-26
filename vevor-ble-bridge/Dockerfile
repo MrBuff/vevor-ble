@@ -18,12 +18,11 @@ RUN apk add --no-cache \
 # Arbeitsverzeichnis festlegen
 WORKDIR /app
 
-# Code aus dem Repository klonen
-RUN git clone https://github.com/bderleta/vevor-ble-bridge.git /app/vevor-ble-bridge
+# Kopiere das Repository
+RUN git clone https://github.com/bderleta/vevor-ble-bridge.git /app
 
-# Kopiere Abhängigkeiten und installiere sie
-COPY requirements.txt /app/vevor-ble-bridge/
-RUN pip install --no-cache-dir -r /app/vevor-ble-bridge/requirements.txt
+# Installiere Python-Abhängigkeiten aus requirements.txt
+RUN pip3 install --no-cache-dir -r /app/requirements.txt
 
 # Skripte und Laufzeitdateien kopieren
 COPY run.sh /app/
