@@ -4,7 +4,7 @@ FROM $BUILD_FROM
 # Installiere Systemabhängigkeiten
 RUN apk add --no-cache \
     python3 \
-    py3-paho-mqtt
+    py3-paho-mqtt \
     py3-pip \
     bluez \
     bluez-dev \
