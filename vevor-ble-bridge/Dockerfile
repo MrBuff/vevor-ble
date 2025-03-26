@@ -15,20 +15,22 @@ RUN apk add --no-cache \
 # Bluetooth-Dienste aktivieren
 #RUN rc-update add bluetooth default
 
-# Arbeitsverzeichnis festlegen
+# Arbeitsverzeichnis setzen
 WORKDIR /app
 
 # Kopiere das Repository
 RUN git clone https://github.com/bderleta/vevor-ble-bridge.git /app
 
-# Installiere Python-Abhängigkeiten aus requirements.txt
-RUN pip3 install --no-cache-dir -r /app/requirements.txt --verbose
+# Installiere Python-Abhängigkeiten
+RUN pip3 install --no-cache-dir \
+    paho-mqtt \
+    bleak \
+    bluepy \
+    asyncio \
+    pyyaml --verbose
 
-# Skripte und Laufzeitdateien kopieren
-COPY run.sh /app/
+# Kopiere das Startskript
+COPY run.sh /
+RUN chmod a+x /run.sh
 
-# Skripte ausführbar machen
-RUN chmod +x /app/run.sh
-
-# Standardkommando
-CMD ["/run.sh"]
+CMD [ "/run.sh" ]
