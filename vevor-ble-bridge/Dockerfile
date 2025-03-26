@@ -1,4 +1,5 @@
-FROM python:3.10-slim
+ARG BUILD_FROM
+FROM $BUILD_FROM
 
 # Installiere Systemabhängigkeiten
 RUN apt-get update && apt-get install -y \
@@ -22,4 +23,4 @@ COPY run.sh /app/
 RUN chmod +x /app/run.sh
 
 # Standardkommando
-CMD ["/app/run.sh"]
+CMD ["/run.sh"]
