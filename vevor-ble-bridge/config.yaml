@@ -40,3 +40,5 @@ schema:
   mqtt_password: str
   mqtt_topic: str
   scan_interval: int
+services:
+  - "mqtt:need"

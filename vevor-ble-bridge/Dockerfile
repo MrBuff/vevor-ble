@@ -10,7 +10,7 @@ RUN apk add --no-cache \
     bluez-dev \
     build-base \
     linux-headers \
-    eudev
+    eudev \
 
 # Bluetooth-Dienste aktivieren
 #RUN rc-update add bluetooth default
