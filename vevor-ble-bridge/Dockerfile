@@ -1,34 +1,17 @@
 ARG BUILD_FROM
 FROM $BUILD_FROM
 
-# Installiere Systemabhängigkeiten
-#RUN apk add --no-cache \
-#    python3 \
-#    py3-pip \
-#    git \
-#    bluez \
-#    bluez-dev \
-#    build-base \
-#    linux-headers \
-#    eudev \
+# Install requirements for add-on
+RUN \
+  apk add --no-cache \
+    python3
 
-# Bluetooth-Dienste aktivieren
-#RUN rc-update add bluetooth default
+# Python 3 HTTP Server serves the current working dir
+# So let's set it to our add-on persistent data directory.
+WORKDIR /data
 
-# Arbeitsverzeichnis setzen
-#WORKDIR /app
-
-# Code aus dem Repository klonen
-#RUN git clone https://github.com/bderleta/vevor-ble-bridge.git /app/vevor-ble-bridge
-
-# Kopiere Abhängigkeiten und installiere sie
-RUN apk add --no-cache py3-paho-mqtt
-
-# Skripte und Laufzeitdateien kopieren
+# Copy data for add-on
 COPY run.sh /
+RUN chmod a+x /run.sh
 
-# Skripte ausführbar machen
-RUN chmod +x /run.sh
-
-# Standardkommando
 CMD [ "/run.sh" ]
