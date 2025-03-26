@@ -7,7 +7,6 @@ RUN apk add --no-cache \
     py3-pip \
     git \
     bluez \
-    bluez-tools \
     bluez-dev \
     build-base \
     linux-headers \
