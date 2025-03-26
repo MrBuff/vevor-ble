@@ -22,7 +22,7 @@ WORKDIR /app
 #RUN git clone https://github.com/bderleta/vevor-ble-bridge.git /app/vevor-ble-bridge
 
 # Kopiere Abhängigkeiten und installiere sie
-RUN pip install --no-cache-dir -r /requirements.txt
+RUN pip install --no-cache-dir -r paho-mqtt bleak
 
 # Skripte und Laufzeitdateien kopieren
 COPY run.sh /app/
