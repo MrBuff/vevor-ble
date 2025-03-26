@@ -2,9 +2,18 @@ ARG BUILD_FROM
 FROM $BUILD_FROM
 
 # Installiere Systemabhängigkeiten
-RUN apt-get update && apt-get install -y \
-    git bluez \
-    && rm -rf /var/lib/apt/lists/*
+RUN apk add --no-cache \
+    python3 \
+    py3-pip \
+    git \
+    bluez \
+    bluez-dev \
+    build-base \
+    linux-headers \
+    eudev
+
+# Bluetooth-Dienste aktivieren
+RUN rc-update add bluetooth default
 
 # Arbeitsverzeichnis festlegen
 WORKDIR /app
