@@ -22,7 +22,7 @@ WORKDIR /app
 RUN git clone https://github.com/bderleta/vevor-ble-bridge.git /app
 
 # Installiere Python-Abhängigkeiten aus requirements.txt
-RUN pip3 install --no-cache-dir -r /app/requirements.txt
+RUN pip3 install --no-cache-dir -r /app/requirements.txt --verbose
 
 # Skripte und Laufzeitdateien kopieren
 COPY run.sh /app/
