@@ -16,7 +16,7 @@ SCAN_INTERVAL=$(bashio::config 'scan_interval')
 bashio::log.info "Config fertig gelesen"
 
 # Starte die Bridge
-cd /app
+#cd /app
 bashio::log.info "Starte Vevor BLE Bridge... logging to mqtt server ${mqtt_host}"
 # Starte das Python-Skript
-python3 /app/main.py
+python3 /main.py
