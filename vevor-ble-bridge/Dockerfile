@@ -13,7 +13,7 @@ RUN apk add --no-cache \
     eudev
 
 # Bluetooth-Dienste aktivieren
-RUN rc-update add bluetooth default
+#RUN rc-update add bluetooth default
 
 # Arbeitsverzeichnis festlegen
 WORKDIR /app
