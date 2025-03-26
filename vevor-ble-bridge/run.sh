@@ -24,4 +24,4 @@ export MQTT_PASSWORD=$(jq --raw-output '.mqtt_password' /data/options.json)
 cd /app
 bashio::log.info "Starte Vevor BLE Bridge..."
 # Starte das Python-Skript
-python3 /app/vevor-ble-bridge/main.py
+python3 /app/main.py
