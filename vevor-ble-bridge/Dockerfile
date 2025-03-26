@@ -31,4 +31,4 @@ COPY run.sh /app/
 RUN chmod +x /app/run.sh
 
 # Standardkommando
-CMD [ "/run.sh" ]
+CMD [ "/app/run.sh" ]
