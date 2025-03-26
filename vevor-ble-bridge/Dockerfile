@@ -16,7 +16,7 @@ FROM $BUILD_FROM
 #RUN rc-update add bluetooth default
 
 # Arbeitsverzeichnis setzen
-WORKDIR /app
+#WORKDIR /app
 
 # Code aus dem Repository klonen
 #RUN git clone https://github.com/bderleta/vevor-ble-bridge.git /app/vevor-ble-bridge
@@ -31,4 +31,4 @@ RUN apk add --no-cache py3-paho-mqtt
 #RUN chmod +x /run.sh
 
 # Standardkommando
-CMD [ "/app/run.sh" ]
+CMD [ "/run.sh" ]
