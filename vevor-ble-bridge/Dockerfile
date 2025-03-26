@@ -3,13 +3,18 @@ FROM $BUILD_FROM
 
 # Installiere benötigte Pakete
 RUN apk add --no-cache \
+    python3 \
+    py3-pip \
     git \
     bluez \
+    bluez-tools \
     bluez-dev \
-    make \
-    g++ \
-    libc-dev \
-    python3
+    build-base \
+    linux-headers \
+    eudev
+
+# Bluetooth-Dienste aktivieren
+RUN rc-update add bluetooth default
 
 # Arbeitsverzeichnis setzen
 WORKDIR /app
@@ -17,11 +22,8 @@ WORKDIR /app
 # Kopiere das Repository
 RUN git clone https://github.com/bderleta/vevor-ble-bridge.git /app
 
-# Debug-Info ausgeben
-# RUN node --version && npm --version
-
-# Installiere Node.js-Abhängigkeiten mit mehr Feedback
-# RUN cd /app && npm install --verbose
+# Installiere Python-Abhängigkeiten aus requirements.txt
+RUN pip3 install --no-cache-dir -r /app/requirements.txt
 
 # Kopiere das Startskript
 COPY run.sh /
