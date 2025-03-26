@@ -1,5 +1,13 @@
 #!/usr/bin/with-contenv bashio
 
+# Finde die erste Python-Hauptdatei
+MAIN_SCRIPT=$(find /app -maxdepth 1 -name "*.py" | grep -E "main" | head -n 1)
+
+if [ -z "$MAIN_SCRIPT" ]; then
+    bashio::log.error "Keine Hauptskript-Datei gefunden!"
+    exit 1
+fi
+
  #Bluetooth-Dienst starten
 bashio::log.info "Starte Bluetooth-Dienst..."
 bluetoothctl power on || bashio::log.warning "Konnte Bluetooth nicht einschalten"
@@ -17,6 +25,6 @@ bashio::log.info "Config fertig gelesen"
 
 # Starte die Bridge
 cd /app
-bashio::log.info "Starte Vevor BLE Bridge... logging to mqtt server $(bashio::config 'mqtt_host')"
+bashio::log.info "Starte Vevor BLE Bridge mit Skript: $MAIN_SCRIPT .... logging to mqtt server $(bashio::config 'mqtt_host')"
 # Starte das Python-Skript
-python3 main.py
+python3 "$MAIN_SCRIPT"
