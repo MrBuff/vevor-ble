@@ -19,4 +19,4 @@ bashio::log.info "Config fertig gelesen"
 #cd /app
 bashio::log.info "Starte Vevor BLE Bridge... logging to mqtt server $(bashio::config 'mqtt_host')"
 # Starte das Python-Skript
-python3 /app/main.py
+python3 /main.py
