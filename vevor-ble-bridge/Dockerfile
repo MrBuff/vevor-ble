@@ -19,11 +19,10 @@ FROM $BUILD_FROM
 WORKDIR /app
 
 # Code aus dem Repository klonen
-RUN git clone https://github.com/bderleta/vevor-ble-bridge.git /app/vevor-ble-bridge
+#RUN git clone https://github.com/bderleta/vevor-ble-bridge.git /app/vevor-ble-bridge
 
 # Kopiere Abhängigkeiten und installiere sie
-COPY requirements.txt /app/vevor-ble-bridge/
-RUN pip install --no-cache-dir -r /app/vevor-ble-bridge/requirements.txt
+RUN pip install --no-cache-dir -r /requirements.txt
 
 # Skripte und Laufzeitdateien kopieren
 COPY run.sh /app/
