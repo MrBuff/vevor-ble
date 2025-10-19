@@ -1,3 +1,5 @@
-name: Vevor BLE Bridge Repository
-url: https://github.com/MrBuff/vevor-ble
-maintainer: MrBuff
+# /repository.yaml
+
+name: "Vevor BLE Bridge Repository"
+url: "https://github.com/MrBuff/vevor-ble"
+maintainer: "MrBuff"
